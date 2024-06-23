@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './propertysearch.css'
 import Map from '../map/Map'
 import Chat from '../chat/Chat'
 import ImageSlider from '../imageslider/ImageSlider'
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import { AuthContext } from '../../context/AuthContext';
+// import { AuthContext } from '../../context/AuthContext';
 import { GoBookmark } from "react-icons/go";
 import { GoBookmarkFill } from "react-icons/go";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
@@ -21,7 +21,7 @@ const SingleProperty = () => {
     async function bookmark() {
         setSave(!save)
         try {
-            const res = await axios.post(`http://localhost:4500/user/save/${params.id}`);
+            const res = await axios.post(`https://house-rental-be.onrender.com/user/save/${params.id}`);
             // console.log(res.data.bookmark);
         } catch (error) {
             console.log(error);
@@ -30,7 +30,7 @@ const SingleProperty = () => {
 
     const postData = async function () {
         try {
-            const { data } = await axios.get(`http://localhost:4500/post/properties/${params.id}`);
+            const { data } = await axios.get(`https://house-rental-be.onrender.com/post/properties/${params.id}`);
             console.log(data);
             setProperty(data.post);
             setSave(data.isBookmark);

@@ -14,7 +14,7 @@ const Login = () => {
         e.preventDefault();
         const username = e.target[0].value.toLowerCase();
         const password = e.target[1].value;
-        await axios.post('http://localhost:4500/auth/login', {
+        await axios.post('https://house-rental-be.onrender.com/auth/login', {
             username,
             password
         }).then((res) => {

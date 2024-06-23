@@ -23,7 +23,7 @@ const PropertySearch = () => {
 
     async function getPosts() {
         try {
-            const allPosts = await axios.get("http://localhost:4500/post/properties/all", { params });
+            const allPosts = await axios.get("https://house-rental-be.onrender.com/post/properties/all", { params });
             setPosts(allPosts.data.allPosts);
             // console.log(allPosts.data.allPosts);
         } catch (error) {
